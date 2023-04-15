@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  cutter:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./images:/images
