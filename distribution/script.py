@@ -40,3 +40,9 @@ for filename in files:
         currentMate = currentMate + 1
         droppedImages = 0
 
+# Zip every distribution separately
+
+for i in range(2):
+    dist = os.path.join(distributionDir, str(i))
+    output = os.path.join(distributionDir, str(i) + '-out')
+    shutil.make_archive(output, 'zip', dist)
