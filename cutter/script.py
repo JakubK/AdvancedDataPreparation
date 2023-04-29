@@ -11,12 +11,10 @@ def generate_random_string(length):
 # Directory containing jpg images
 directory = "/images"
 
-q = 0
 # Loop through all files in the directory
 for filename in os.listdir(directory):
     if filename.endswith(".jpg"):
         # Read the image
-        q = q + 1
         img_path = os.path.join(directory, filename)
         img = cv2.imread(img_path)
 
@@ -38,16 +36,16 @@ for filename in os.listdir(directory):
                 if y % 33 == 0:
                     y = y + 1
                 
-                print(" Cropping from ", x, " and ", y)
+                #print(" Cropping from ", x, " and ", y)
                 # Crop the cell from the image
                 cell = img[y:y+32, x:x+32]
 
                 # Generate a random filename
-                random_filename = str(q) + "_" + generate_random_string(10) + ".jpg"
+                random_filename = generate_random_string(10) + ".jpg"
 
                 # Save the cell as a separate image
                 cell_path = os.path.join(directory, random_filename)
                 cv2.imwrite(cell_path, cell)
 
         os.remove(img_path)
-        print(f"Cells extracted from '{filename}': {num_cells_horizontal} x {num_cells_vertical}")
+        #print(f"Cells extracted from '{filename}': {num_cells_horizontal} x {num_cells_vertical}")
