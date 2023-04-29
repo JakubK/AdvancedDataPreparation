@@ -4,6 +4,13 @@ services:
   cutter:
     build:
       dockerfile: Dockerfile
-      context: .
+      context: cutter
     volumes:
       - ./images:/images
+  distribution:
+    build:
+      dockerfile: Dockerfile
+      context: distribution
+    volumes:
+      - ./images:/images
+      - ./distributionImages:/distributionImages
